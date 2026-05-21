@@ -6,16 +6,18 @@ import NavBar from './components/NavBar'
 import './App.css'
 import {Footer} from "./components/contatti.tsx";
 import VideoComponent from "./components/VideoComponent.tsx";
+import  Hero from "./components/hero.tsx"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [sideOverlook, setSideOverlook] = useState(false)
 
   return (
     <>
       <NavBar />
-        <main>
-        </main>
+
         <VideoComponent/>
+        <Hero/>
+
 
     </>
   )

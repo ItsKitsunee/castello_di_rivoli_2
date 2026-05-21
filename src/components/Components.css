@@ -43,15 +43,218 @@ button.mobile-nav-button {
 }
 
 .video-full-width {
-    width: 100vw;
+    width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
 
     /* Forza il posizionamento rispetto allo schermo e non al contenitore */
+
+}
+
+/* Hero Section Styling */
+.Hero-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* Lighter, more professional gradient */
+    color: #2d3748;
+    text-align: center;
+    padding: 10px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.03); /* Subtle inner shadow */
+
+}
+
+.Hero-main h1 {
+    font-family: 'Georgia', serif; /* More classic font */
+    font-size: 4.5rem; /* Larger and more impactful */
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 40px; /* Increased margin */
+    letter-spacing: -1px;
+    color: #1a202c;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.15); /* More pronounced shadow */
+    line-height: 1.1;
+}
+.Hero-main h2 {
+    font-family: 'Georgia', serif; /* More classic font */
+    font-size: 3rem; /* Larger and more impactful */
+    font-weight: 400;
+    margin-bottom: 30px; /* Increased margin */
+    letter-spacing: -1px;
+    color: #1a202c;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.15); /* More pronounced shadow */
+    line-height: 1.1;
+}
+
+.Hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Increased gap between buttons */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px; /* Increased margin */
+
+}
+
+/* Base button style for Hero section */
+.Hero-buttons button {
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    padding: 18px 35px; /* Larger padding */
+    font-size: 1.2rem; /* Larger font size */
+    font-weight: 600;
+    border-radius: 0; /* No border radius */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-transform: uppercase; /* Professional touch */
+    letter-spacing: 0.8px;
+}
+
+/* Primary buttons - Beige theme */
+.Hero-button-primary {
+    background-color: #e0d8c7; /* Beige color */
+    color: #4a4a4a; /* Darker text for readability */
+    border: 1px solid #d4ccbc; /* Subtle border */
+}
+
+.Hero-button-primary:hover {
+    background-color: #d4ccbc; /* Darker beige on hover */
+    color: #333333;
+    transform: translateY(-4px); /* Lift effect */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18); /* Enhanced shadow */
+}
+
+.Hero-button-primary::after {
+    content: '→'; /* Arrow decoration */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    font-size: 1.3em; /* Slightly larger arrow */
+    color: #4a4a4a; /* Arrow color */
+}
+
+.Hero-button-primary:hover::after {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+}
+
+
+.primary-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* Special Overlook button - Base style */
+.Special-button-overlook {
+    border: 2px solid; /* Add a border for distinction */
+    background: transparent; /* Ensure background is transparent to show pseudo-element */
+    color: #2d3748; /* Default text color */
+    padding: 18px 40px; /* Increased padding for larger size */
+    font-size: 1.25rem; /* Slightly larger font */
+    font-weight: 700;
+    position: relative; /* Needed for pseudo-element positioning */
+    overflow: hidden; /* Ensures pseudo-element stays within bounds */
+    z-index: 1; /* Ensures text is above pseudo-element */
+    transition: color 0.4s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions for color, transform, and shadow */
+}
+
+.Special-button-overlook::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2d3748; /* Dark background for hover */
+    transform: translateX(-100%); /* Start off-screen to the left */
+    transition: transform 0.4s ease-in-out; /* Smooth slide-in transition */
+    z-index: -1; /* Place behind the text */
+}
+
+.Special-button-overlook:hover {
+    color: white; /* White text on hover */
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.Special-button-overlook:hover::before {
+    transform: translateX(0); /* Slide in to cover the button */
+}
+
+
+/* Overlook ON state - White with dark text */
+.Hero-button-white {
+    border-color: #cccccc; /* Light border */
+    color: #2d3748;
+    background-color: white;
+}
+
+.Hero-button-white:hover {
+    background-color: #f0f0f0; /* Slightly off-white on hover */
+    color: #1a202c;
+    border-color: #bbbbbb;
+}
+
+/* Overlook OFF state - Darker, more prominent */
+.Hero-button-blue { /* Renamed to reflect its function, not necessarily blue color */
+    border-color: #4a4a4a; /* Darker border for contrast */
+    color: white; /* White text for contrast */
+    background-color: #4a4a4a; /* Dark background */
+}
+
+.Hero-button-blue:hover {
+    background-color: #333333; /* Even darker on hover */
+    color: white;
+    border-color: #333333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .Hero-main h1 {
+        font-size: 3rem; /* Adjusted for smaller screens */
+        margin-bottom: 30px;
+    }
+
+    .Hero-buttons {
+        flex-direction: column;
+        gap: 20px; /* Adjusted gap */
+    }
+
+    .Hero-buttons button {
+        width: 90%; /* Make buttons take more width on smaller screens */
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 15px 25px; /* Adjusted padding */
+        font-size: 1.1rem; /* Adjusted font size */
+    }
+
+    .Special-button-overlook {
+        padding: 15px 30px; /* Adjusted padding */
+        font-size: 1.15rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .Hero-main h1 {
+        font-size: 2.2rem;
+    }
+    .Hero-buttons button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+    .Special-button-overlook {
+        font-size: 1.05rem;
+        padding: 12px 25px;
+    }
 }
