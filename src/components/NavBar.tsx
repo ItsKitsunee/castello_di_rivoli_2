@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { Box, Button, Flex, Drawer, IconButton, VStack } from '@chakra-ui/react'
 import { FaBars } from 'react-icons/fa'
 import { FaTicket, FaXmark } from 'react-icons/fa6'
+import { FaSearch } from "react-icons/fa"
 import Logo from '../photos/logos/LOGO1.svg'
+import { RxCross2 } from "react-icons/rx";
 import './Components.css'
 
 export default function NavBar() {
@@ -41,6 +43,7 @@ export default function NavBar() {
                     alignItems="center"
                     className="info-buttons"
                 >
+                    <FaSearch />
                     <Button
                         variant="ghost"
                         className="nav-button tickets-button"
@@ -66,7 +69,7 @@ export default function NavBar() {
                         }}
                         transition="all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
                     >
-                        Menu
+                        Menù
                     </Button>
                 </Flex>
 
@@ -95,15 +98,23 @@ export default function NavBar() {
                 <Drawer.Positioner>
                     <Drawer.Content className="drawer-content" borderLeftWidth="1px">
 
-                        {/* Questo trigger chiude il Drawer nativamente in v3 */}
-                        <Drawer.CloseTrigger />
-
-                        <Drawer.Header borderBottomWidth="1px" fontSize="xl" fontWeight="600">
-                            Menù
+                        <Drawer.Header borderBottomWidth="1px" fontSize="xl" fontWeight="600" display="flex" justifyContent="space-between" alignItems="center">
+                            <Box>Menù</Box>
+                            <IconButton
+                                aria-label="Close Menu"
+                                variant="ghost"
+                                onClick={() => setOpen(false)}
+                                size="lg"
+                                _hover={{
+                                    bg: 'rgba(0, 0, 0, 0.05)',
+                                }}
+                            >
+                                <RxCross2 fontSize="1.5rem" />
+                            </IconButton>
                         </Drawer.Header>
 
                         <Drawer.Body>
-                            <VStack spacing={6} align="stretch" py={4}>
+                            <VStack gap={6} align="stretch" py={4}>
                                 {/* Mostra il bottone biglietti nel drawer SOLO su mobile */}
                                 <Button
                                     display={{ base: 'flex', md: 'none' }}
