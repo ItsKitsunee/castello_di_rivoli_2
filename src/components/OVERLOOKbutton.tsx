@@ -9,13 +9,14 @@ export default function OVERLOOKbutton() {
         setOverlookState(!overlookState);
     };
 
-    // Determina la classe CSS in base allo stato overlookState
+    // Determina la classe CSS in base allsto stato overlookState
     const buttonClassName = `Special-button-overlook ${overlookState ? 'Hero-button-white' : 'Hero-button-blue'}`;
 
     return (
         <button
             className={buttonClassName}
             onClick={handleToggleOverlook}
+            style ={{justifyContent:"center", alignItems:"center", width: "20rem"}}
         >
             {overlookState ? (
                         <img src={logoRivoli} alt="Overlook ON" style={{ height: '10rem'}} />

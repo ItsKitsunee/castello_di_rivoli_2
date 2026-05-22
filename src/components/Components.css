@@ -67,13 +67,14 @@ button.mobile-nav-button {
 /* Primary buttons - Beige theme */
 .Hero-button-primary {
     background-color: #e0d8c7; /* Beige color */ color: #4a4a4a; /* Darker text for readability */ border: 1px solid #d4ccbc; /* Subtle border */
+
 }
 .Hero-button-primary:hover {
     background-color: #d4ccbc; /* Darker beige on hover */ color: #333333; /* Rimosso transform */ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Ombra leggermente ridotta */
 }
 /* Rimosso .Hero-button-primary::after e .Hero-button-primary:hover::after per eliminare le frecce */
-.primary-buttons {
-    display: flex; align-items: center; justify-content: center; flex-direction: row; gap: 10px;
+.primaryButtons {
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;
 }
 /* Special Overlook button - Base style */
 .Special-button-overlook {
@@ -93,14 +94,14 @@ button.mobile-nav-button {
     border-color: #cccccc; /* Light border */ color: #2d3748; background-color: white;
 }
 .Hero-button-white:hover {
-    background-color: #f0f0f0; /* Slightly off-white on hover */ color: #1a202c; border-color: #bbbbbb;
+    background-color: #08274f; /* Slightly off-white on hover */ color: #1a202c; border-color: #bbbbbb;
 }
 /* Overlook OFF state - Darker, more prominent */
 .Hero-button-blue { /* Renamed to reflect its function, not necessarily blue color */
-    border-color: #4a4a4a; /* Darker border for contrast */ color: white; /* White text for contrast */ background-color: #4a4a4a; /* Dark background */
+    border-color: #4a4a4a; /* Darker border for contrast */ color: white; /* White text for contrast */ background-color: #08274f; /* Dark background */
 }
 .Hero-button-blue:hover {
-    background-color: #333333; /* Even darker on hover */ color: white; border-color: #333333;
+    background-color: white; /* Even darker on hover */ color: white; border-color: #333333;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
