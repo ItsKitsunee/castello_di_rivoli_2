@@ -327,12 +327,31 @@ COME METTERE LE IMMAGINI DI SFONDO (ESEMPI)
 }
 /* Se vuoi un'immagine specifica per la prima card "evento" (Chiusura Sale Storiche) */
 .info-grid-container .info-card.evento:nth-of-type(3) {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('./assets/sala-storica.jpg'); /* Metti qui il path della tua immagine */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('../photos/pics/manica-Lunga.jpg');
+
+    /* Ridimensiona l'immagine in modo che copra l'intera card, mantenendo le proporzioni */
+    background-size: cover;
+
+    /* Centra l'immagine sia in orizzontale che in verticale, eliminando i tagli strani */
+    background-position: center;
+
+    /* Opzionale: se vuoi essere sicuro che la card stessa rimanga quadrata (1:1) */
+    aspect-ratio: 1 / 1;; /* Metti qui il path della tua immagine */
 }
 /* Se vuoi un'immagine specifica per la seconda card "evento" (Oltre il Visibile) */
 .info-grid-container .info-card.evento:nth-of-type(4) {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('../photos/pics/manica-Lunga.jpg'); /* Metti qui il path della tua immagine */
-}
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('../photos/pics/manica-Lunga.jpg');
+
+    /* Ridimensiona l'immagine in modo che copra l'intera card, mantenendo le proporzioni */
+    background-size: cover;
+
+    /* Centra l'immagine sia in orizzontale che in verticale, eliminando i tagli strani */
+    background-position: center;
+
+    /* Opzionale: se vuoi essere sicuro che la card stessa rimanga quadrata (1:1) */
+    aspect-ratio: 1 / 1;
+}/* Metti qui il path della tua immagine */
+
 .egizio-link {
     color: #006699; font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
 }
