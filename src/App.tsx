@@ -1,26 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import NavBar from './components/NavBar'
+import VideoComponent from "./components/VideoComponent.tsx"
+import Hero from "./components/hero.tsx"
+import InfoGrid from "./components/InfoGrid.tsx"
+import NewsSection from "./components/NewsSection.tsx"
 import './App.css'
-import {Footer} from "./components/contatti.tsx";
-import VideoComponent from "./components/VideoComponent.tsx";
-import  Hero from "./components/hero.tsx"
 
 function App() {
-  const [sideOverlook, setSideOverlook] = useState(false)
+    return (
+        <>
+            <NavBar />
 
-  return (
-    <>
-      <NavBar />
+            {/* Contenitore unico per contenere sia il video che i testi dell'Hero */}
+            <div className="fullscreen-hero-wrapper">
+                <VideoComponent />
+                <Hero />
+            </div>
 
-        <VideoComponent/>
-        <Hero/>
-
-
-    </>
-  )
+            {/* Le nuove sezioni sotto l'Hero (Immagine 1 e Immagine 2) */}
+            <InfoGrid />
+            <NewsSection />
+        </>
+    )
 }
 
 export default App

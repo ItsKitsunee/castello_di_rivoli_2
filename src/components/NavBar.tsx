@@ -99,7 +99,7 @@ export default function NavBar() {
                     <Drawer.Content className="drawer-content" borderLeftWidth="1px">
 
                         <Drawer.Header borderBottomWidth="1px" fontSize="xl" fontWeight="600" display="flex" justifyContent="space-between" alignItems="center">
-                            <Box>Menù</Box>
+                            <Box color="black">Menù</Box>
                             <IconButton
                                 aria-label="Close Menu"
                                 variant="ghost"

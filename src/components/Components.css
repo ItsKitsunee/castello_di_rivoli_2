@@ -1,260 +1,407 @@
 /* Forza la specificità combinando tag e classe, o usando !important */
 button.nav-button {
-    position: relative;
-    overflow: hidden;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    color: #1a1a1a !important; /* L'important spezza l'ereditarietà di Chakra */
-    background: transparent;
-    padding: 10px 20px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
+    position: relative; overflow: hidden; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.3px; color: #1a1a1a !important; /* L'important spezza l'ereditarietà di Chakra */ background: transparent; padding: 10px 20px; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 4px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: pointer;
 }
-
 /* Fai la stessa cosa per l'hamburger button */
 button.hamburger-button {
-    font-size: 1.3rem;
-    color: #1a1a1a !important;
+    font-size: 1.3rem; color: #1a1a1a !important;
 }
-
 /* E per i bottoni dentro il Drawer */
 button.drawer-button {
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.4px;
-    padding: 14px 16px;
-    border-radius: 4px;
-    justify-content: flex-start;
-    color: #1a1a1a !important;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    position: relative;
+    font-size: 1rem; font-weight: 400; letter-spacing: 0.4px; padding: 14px 16px; border-radius: 4px; justify-content: flex-start; color: #1a1a1a !important; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative;
 }
-
+/* ==========================================
+ANIMAZIONE SLIDE-IN PER I BOTTONI DELLA NAVBAR
+========================================== */
+/* 1. Applichiamo l'effetto al bottone "Menù" e ai bottoni della navbar */
+button.nav-button.menu-button,
+button.mobile-nav-button,
+button.nav-button.tickets-button { /* Aggiunto tickets-button qui */
+    position: relative !important; overflow: hidden !important; /* Indispensabile per non far debordare lo sfondo prima del tempo */ z-index: 1 !important; /* Isola il bottone per gestire i piani del testo e dello sfondo */ background: transparent !important; transition: color 0.4s ease-in-out !important; /* Rimosso transform e box-shadow */
+}
+/* 2. Creiamo lo sfondo colorato nascosto a sinistra (Il rettangolo che scivolerà dentro) */
+button.nav-button.menu-button::before,
+button.mobile-nav-button::before,
+button.nav-button.tickets-button::before { /* Aggiunto tickets-button qui */
+    content: '' !important; position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background-color: #005c8a !important; /* Blu Egizio (cambialo in #1a1a1a se lo vuoi nero) */ transform: translateX(-101%) !important; /* Parte completamente fuori dallo schermo a sinistra */ transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important; /* Effetto fluido */ z-index: -1 !important; /* Si posiziona SOTTO al testo del bottone */
+}
+/* 3. Cosa succede quando l'utente passa il mouse sopra (Hover) */
+button.nav-button.menu-button:hover,
+button.mobile-nav-button:hover,
+button.nav-button.tickets-button:hover { /* Aggiunto tickets-button qui */
+    color: #ffffff !important; /* Il testo diventa bianco quando lo sfondo blu lo copre */ /* Rimosso transform e box-shadow */
+}
+/* Forza le icone (come FaTicket) e i testi dentro i bottoni a diventare bianchi in hover */
+button.nav-button.menu-button:hover *,
+button.mobile-nav-button:hover *,
+button.nav-button.tickets-button:hover * { /* Aggiunto tickets-button qui */
+    color: #ffffff !important;
+}
+/* 4. Azione di scorrimento del rettangolo in Hover */
+button.nav-button.menu-button:hover::before,
+button.mobile-nav-button:hover::before,
+button.nav-button.tickets-button:hover::before { /* Aggiunto tickets-button qui */
+    transform: translateX(0) !important; /* Scivola al centro coprendo il bottone */
+}
 button.mobile-nav-button {
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 12px 16px;
-    border-radius: 4px;
-    color: #1a1a1a !important;
-    transition: all 0.3s ease;
+    font-size: 1rem; font-weight: 500; padding: 12px 16px; border-radius: 4px; color: #1a1a1a !important; transition: all 0.3s ease;
+}
+/* Hero Section Styling */
+.Hero-main {
+    display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 80vh; /* Reso più piccolo */ color: #2d3748; text-align: center; padding: 10px; /* Rimosso background e box-shadow */
+}
+.Hero-main h1 {
+    font-family: 'BodoniBdBTWXX-Bold', 'BodoniBTWXX-Roman', serif; /* Coerente con il resto del sito */ font-size: 3.5rem; /* Reso più piccolo */ font-weight: 700; margin-top: 0px; margin-bottom: 30px; /* Margine ridotto */ letter-spacing: -1px; color: #1a202c; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Ombra più sottile */ line-height: 1.1;
+}
+.Hero-main h2 {
+    font-family: 'BodoniBdBTWXX-Bold', 'BodoniBTWXX-Roman', serif; /* Coerente con il resto del sito */ font-size: 2.5rem; /* Reso più piccolo */ font-weight: 400; margin-bottom: 20px; /* Margine ridotto */ letter-spacing: -1px; color: #1a202c; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Ombra più sottile */ line-height: 1.1;
+}
+.Hero-buttons {
+    display: flex; flex-direction: column; gap: 15px; /* Gap ridotto */ flex-wrap: wrap; justify-content: center; margin-top: 20px; /* Margine ridotto */
+}
+/* Base button style for Hero section */
+.Hero-buttons button {
+    position: relative; padding: 15px 30px; /* Padding ridotto */ font-size: 1.1rem; /* Font size ridotto */ font-weight: 600; border-radius: 0; /* No border radius */ cursor: pointer; transition: all 0.3s ease-in-out; overflow: hidden; border: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombra più sottile */ text-transform: uppercase; /* Professional touch */ letter-spacing: 0.8px;
+}
+/* Primary buttons - Beige theme */
+.Hero-button-primary {
+    background-color: #e0d8c7; /* Beige color */ color: #4a4a4a; /* Darker text for readability */ border: 1px solid #d4ccbc; /* Subtle border */
+}
+.Hero-button-primary:hover {
+    background-color: #d4ccbc; /* Darker beige on hover */ color: #333333; /* Rimosso transform */ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Ombra leggermente ridotta */
+}
+/* Rimosso .Hero-button-primary::after e .Hero-button-primary:hover::after per eliminare le frecce */
+.primary-buttons {
+    display: flex; align-items: center; justify-content: center; flex-direction: row; gap: 10px;
+}
+/* Special Overlook button - Base style */
+.Special-button-overlook {
+    border: 2px solid; /* Add a border for distinction */ background: transparent; /* Ensure background is transparent to show pseudo-element */ color: #2d3748; /* Default text color */ padding: 15px 35px; /* Padding ridotto */ font-size: 1.15rem; /* Font size ridotto */ font-weight: 700; position: relative; /* Needed for pseudo-element positioning */ overflow: hidden; /* Ensures pseudo-element stays within bounds */ z-index: 1; /* Ensures text is above pseudo-element */ transition: color 0.4s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions for color, transform, and shadow */
+}
+.Special-button-overlook::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #2d3748; /* Dark background for hover */ transform: translateX(-100%); /* Start off-screen to the left */ transition: transform 0.4s ease-in-out; /* Smooth slide-in transition */ z-index: -1; /* Place behind the text */
+}
+.Special-button-overlook:hover {
+    color: white; /* White text on hover */ /* Rimosso transform */ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Ombra leggermente ridotta */
+}
+.Special-button-overlook:hover::before {
+    transform: translateX(0); /* Slide in to cover the button */
+}
+/* Overlook ON state - White with dark text */
+.Hero-button-white {
+    border-color: #cccccc; /* Light border */ color: #2d3748; background-color: white;
+}
+.Hero-button-white:hover {
+    background-color: #f0f0f0; /* Slightly off-white on hover */ color: #1a202c; border-color: #bbbbbb;
+}
+/* Overlook OFF state - Darker, more prominent */
+.Hero-button-blue { /* Renamed to reflect its function, not necessarily blue color */
+    border-color: #4a4a4a; /* Darker border for contrast */ color: white; /* White text for contrast */ background-color: #4a4a4a; /* Dark background */
+}
+.Hero-button-blue:hover {
+    background-color: #333333; /* Even darker on hover */ color: white; border-color: #333333;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .Hero-main h1 {
+        font-size: 2.5rem; /* Adjusted for smaller screens */; margin-bottom: 25px;
+    }
+    .Hero-main h2 {
+        font-size: 2rem;
+    }
+    .Hero-buttons {
+        flex-direction: column; gap: 15px; /* Adjusted gap */
+    }
+    .Hero-buttons button {
+        width: 90%; /* Make buttons take more width on smaller screens */; max-width: 300px; margin: 0 auto; padding: 12px 20px; /* Adjusted padding */; font-size: 1rem; /* Adjusted font size */
+    }
+    .Special-button-overlook {
+        padding: 12px 25px; /* Adjusted padding */; font-size: 1.05rem; /* Adjusted font size */
+    }
+}
+@media (max-width: 480px) {
+    .Hero-main h1 {
+        font-size: 2rem;
+    }
+    .Hero-main h2 {
+        font-size: 1.5rem;
+    }
+    .Hero-buttons button {
+        font-size: 0.9rem; padding: 10px 15px;
+    }
+    .Special-button-overlook {
+        font-size: 0.95rem; padding: 10px 20px;
+    }
+}
+#nprogress .bar {
+    background: #d4af37 !important; /* Oro Egizio */
+}
+#nprogress .peg {
+    box-shadow: 0 0 10px #d4af37, 0 0 5px #d4af37 !important;
+}
+#nprogress .spinner-icon {
+    border-top-color: #d4af37 !important; border-left-color: #d4af37 !important;
+}
+body {
+    background-color: #f7f4ee;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
+/* Video styling per mantenere le proporzioni */
 .video-full-width {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
-
-    /* Forza il posizionamento rispetto allo schermo e non al contenitore */
-
+    margin: 0;
+    padding: 0;
 }
-
-/* Hero Section Styling */
-.Hero-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* Lighter, more professional gradient */
-    color: #2d3748;
-    text-align: center;
-    padding: 10px;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.03); /* Subtle inner shadow */
-
+h1.museo-hero-title,
+.museo-title-large {
+    font-family: 'BodoniBdBTWXX-Bold', 'BodoniBTWXX-Roman', serif; font-size: 3.5rem; letter-spacing: 3px; text-transform: uppercase; color: #d4af37; /* Oro */ line-height: 1.2; margin-bottom: 1.5rem;
 }
-
-.Hero-main h1 {
-    font-family: 'Georgia', serif; /* More classic font */
-    font-size: 4.5rem; /* Larger and more impactful */
-    font-weight: 700;
-    margin-top: 0px;
-    margin-bottom: 40px; /* Increased margin */
-    letter-spacing: -1px;
-    color: #1a202c;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.15); /* More pronounced shadow */
-    line-height: 1.1;
+h2.museo-section-title {
+    font-family: 'BodoniBTWXX-Roman', serif; font-size: 2.2rem; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 15px; margin-bottom: 2.5rem;
 }
-.Hero-main h2 {
-    font-family: 'Georgia', serif; /* More classic font */
-    font-size: 3rem; /* Larger and more impactful */
-    font-weight: 400;
-    margin-bottom: 30px; /* Increased margin */
-    letter-spacing: -1px;
-    color: #1a202c;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.15); /* More pronounced shadow */
-    line-height: 1.1;
+.museo-italic-caption {
+    font-family: 'BodoniBkBTWXX-BookItalic', 'BodoniBTWXX-Italic', serif; font-size: 1.2rem; color: #c5a059; line-height: 1.4;
 }
-
-.Hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 18px; /* Increased gap between buttons */
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px; /* Increased margin */
-
+p.museo-text {
+    font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 1rem; line-height: 1.6; color: #e0e0e0;
 }
-
-/* Base button style for Hero section */
-.Hero-buttons button {
+.museo-hero-container {
+    position: relative; width: 100vw; height: auto; overflow: hidden; background-color: #f7f4ee; margin-left: calc(-50vw + 50%);
+}
+.museo-hero-container video {
+    position: relative; top: 0; left: 0; width: 100%; height: auto; object-fit: contain; display: block; margin: 0 auto;
+}
+.museo-hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px;
+}
+/* ==========================================
+HERO FULL SCREEN CON VIDEO DI SFONDO
+========================================== */
+.fullscreen-hero-wrapper {
+    position: relative; width: 100vw; height: auto; overflow: hidden; background-color: #f7f4ee; margin-left: calc(-50vw + 50%);
+}
+/* Forza il VideoComponent a stare sotto e riempire tutto */
+.fullscreen-hero-wrapper video,
+.fullscreen-hero-wrapper div:first-child {
+    position: relative; top: 0; left: 0; width: 100% !important; height: auto !important; object-fit: contain; display: block; z-index: 1;
+}
+/* Sovrappone i testi dell'Hero sopra al video */
+.Hero-overlay-content {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 2; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%); /* Effetto ombra 3D */ display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+}
+.museo-hero-title {
+    font-family: 'BodoniBdBTWXX-Bold', serif; font-size: 4rem; color: #ffffff; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px;
+}
+/* ==========================================
+STILE SEZIONI (IMMAGINE 1 - GRIGLIA INFO)
+========================================== */
+.egizio-section-light {
+    background-color: #f7f4ee; /* Sfondo sabbia chiaro tipico del Museo Egizio */ padding: 60px 4%; font-family: 'Montserrat', sans-serif;
+}
+.info-grid-flex-container {
+    display: grid; grid-template-columns: 1fr 1fr; /* Due colonne identiche della stessa larghezza */ gap: 30px; /* Spazio uniforme tra le due colonne */ max-width: 1400px; margin: 0 auto;
+}
+/* ==========================================
+STILE SEZIONI (IMMAGINE 1 - GRIGLIA INFO)
+========================================== */
+.egizio-section-light {
+    background-color: #f7f4ee; /* Sfondo sabbia chiaro tipico del Museo Egizio */ padding: 60px 4%; font-family: 'Montserrat', sans-serif;
+}
+.info-grid-container {
+    display: grid; /* responsive: crea colonne uguali, mantenendo la griglia flessibile */ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; align-items: start;
+}
+/* Base comune per tutte le card */
+/* ==========================================
+   SCHEDA INFORMATIVA (ORARI, DOVE SIAMO, PRENOTAZIONI)
+   ========================================== */
+.info-card {
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     position: relative;
-    padding: 18px 35px; /* Larger padding */
-    font-size: 1.2rem; /* Larger font size */
-    font-weight: 600;
-    border-radius: 0; /* No border radius */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    overflow: hidden;
-    border: none;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    text-transform: uppercase; /* Professional touch */
-    letter-spacing: 0.8px;
-}
-
-/* Primary buttons - Beige theme */
-.Hero-button-primary {
-    background-color: #e0d8c7; /* Beige color */
-    color: #4a4a4a; /* Darker text for readability */
-    border: 1px solid #d4ccbc; /* Subtle border */
-}
-
-.Hero-button-primary:hover {
-    background-color: #d4ccbc; /* Darker beige on hover */
-    color: #333333;
-    transform: translateY(-4px); /* Lift effect */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18); /* Enhanced shadow */
-}
-
-.Hero-button-primary::after {
-    content: '→'; /* Arrow decoration */
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%) translateX(10px);
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    font-size: 1.3em; /* Slightly larger arrow */
-    color: #4a4a4a; /* Arrow color */
-}
-
-.Hero-button-primary:hover::after {
-    transform: translateY(-50%) translateX(0);
-    opacity: 1;
-}
-
-
-.primary-buttons {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 10px;
-}
-
-/* Special Overlook button - Base style */
-.Special-button-overlook {
-    border: 2px solid; /* Add a border for distinction */
-    background: transparent; /* Ensure background is transparent to show pseudo-element */
-    color: #2d3748; /* Default text color */
-    padding: 18px 40px; /* Increased padding for larger size */
-    font-size: 1.25rem; /* Slightly larger font */
-    font-weight: 700;
-    position: relative; /* Needed for pseudo-element positioning */
-    overflow: hidden; /* Ensures pseudo-element stays within bounds */
-    z-index: 1; /* Ensures text is above pseudo-element */
-    transition: color 0.4s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions for color, transform, and shadow */
-}
-
-.Special-button-overlook::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+    flex-direction: column;
     width: 100%;
-    height: 100%;
-    background-color: #2d3748; /* Dark background for hover */
-    transform: translateX(-100%); /* Start off-screen to the left */
-    transition: transform 0.4s ease-in-out; /* Smooth slide-in transition */
-    z-index: -1; /* Place behind the text */
+    box-sizing: border-box;
 }
 
-.Special-button-overlook:hover {
-    color: white; /* White text on hover */
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+/* Blocco Orari e Contatti */
+.info-text-block {
+    padding: 35px 30px;             /* Spaziatura interna capiente come da foto */
+    border-top: 4px solid #d4af37;   /* Linea superiore oro rimasta invariata */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0;                          /* Gestiamo i margini singolarmente anziché con il flex gap */
 }
 
-.Special-button-overlook:hover::before {
-    transform: translateX(0); /* Slide in to cover the button */
+/* Allineamento e stile dei blocchi interni */
+.info-section {
+    text-align: left;
+    margin-bottom: 24px;             /* Spazio regolare tra una sezione e l'altra */
 }
 
-
-/* Overlook ON state - White with dark text */
-.Hero-button-white {
-    border-color: #cccccc; /* Light border */
-    color: #2d3748;
-    background-color: white;
+/* Ultima sezione (Prenotazioni) non ha bisogno del margine inferiore */
+.info-section:last-of-type {
+    margin-bottom: 0;
 }
 
-.Hero-button-white:hover {
-    background-color: #f0f0f0; /* Slightly off-white on hover */
-    color: #1a202c;
-    border-color: #bbbbbb;
+/* I Titoli principali (Orari, Dove Siamo, Prenotazioni) */
+.info-section h3 {
+    font-family: 'BodoniBdBTWXX-Bold', 'BodoniBTWXX-Roman', serif;
+    font-size: 1.75rem;              /* Più grande e d'impatto, fedele allo screenshot */
+    color: #000000;
+    margin: 0 0 8px 0;               /* Margine ridotto sotto per tenere il testo vicino */
+    text-align: left;
+    letter-spacing: 0.3px;
 }
 
-/* Overlook OFF state - Darker, more prominent */
-.Hero-button-blue { /* Renamed to reflect its function, not necessarily blue color */
-    border-color: #4a4a4a; /* Darker border for contrast */
-    color: white; /* White text for contrast */
-    background-color: #4a4a4a; /* Dark background */
+/* I testi descrittivi (es. "Aperto oggi dalle...", l'indirizzo, i telefoni) */
+.info-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;                /* Montserrat regolare/leggero */
+    color: #555555;
+    line-height: 1.45;
+    margin: 0 0 12px 0;              /* Margine inferiore per staccare l'eventuale link successivo */
+    text-align: left;
 }
 
-.Hero-button-blue:hover {
-    background-color: #333333; /* Even darker on hover */
-    color: white;
-    border-color: #333333;
+/* I Link Blu con la freccetta (TUTTE LE APERTURE >, COME RAGGIUNGERCI >) */
+.egizio-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #006699;
+    font-size: 0.78rem;              /* Leggermente rimpicciolito rispetto al testo descrittivo */
+    text-transform: uppercase;       /* Forza tutto in maiuscolo come da foto */
+    letter-spacing: 0.8px;           /* Spaziatura tra le lettere tipica dei link del museo */
+    text-decoration: none;
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+    transition: color 0.2s ease;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .Hero-main h1 {
-        font-size: 3rem; /* Adjusted for smaller screens */
-        margin-bottom: 30px;
-    }
-
-    .Hero-buttons {
-        flex-direction: column;
-        gap: 20px; /* Adjusted gap */
-    }
-
-    .Hero-buttons button {
-        width: 90%; /* Make buttons take more width on smaller screens */
-        max-width: 350px;
-        margin: 0 auto;
-        padding: 15px 25px; /* Adjusted padding */
-        font-size: 1.1rem; /* Adjusted font size */
-    }
-
-    .Special-button-overlook {
-        padding: 15px 30px; /* Adjusted padding */
-        font-size: 1.15rem; /* Adjusted font size */
-    }
+.egizio-link:hover {
+    color: #004466;                  /* Scurisce leggermente all'hover */
 }
-
-@media (max-width: 480px) {
-    .Hero-main h1 {
-        font-size: 2.2rem;
-    }
-    .Hero-buttons button {
-        font-size: 1rem;
-        padding: 12px 20px;
-    }
-    .Special-button-overlook {
-        font-size: 1.05rem;
-        padding: 12px 25px;
+/* ==========================================
+TRUCCO ASPECT-RATIO 1:1 (LE CARD EVENTO E AVVISO)
+========================================== */
+.info-card.evento,
+.info-card.avviso {
+    aspect-ratio: 1 / 1; /* Forza la card ad essere un quadrato perfetto (Larghezza = Altezza) */ padding: 30px; justify-content: flex-end; /* Spinge i testi in basso */ color: white; border-bottom: 5px solid #005c8a; /* Linea blu inferiore del Museo Egizio */ /* Proprietà di base per gestire le immagini di sfondo */ background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+/* Badge (AVVISI / APPUNTAMENTI) posizionato in alto a sinistra del quadrato */
+.info-card.evento .badge,
+.info-card.avviso .badge {
+    position: absolute; text-align: left; top: 30px; left: 30px; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; border-bottom: 2px solid white; padding-bottom: 2px;
+}
+.info-card.evento h2,
+.info-card.avviso h2 {
+    font-family: 'BodoniBTWXX-Roman', serif; text-align: left; font-size: 1.5rem; line-height: 1.2; margin-bottom: 8px; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Ombra per leggere il testo sopra l'immagine */ z-index: 2;
+}
+.info-card.evento .sub,
+.info-card.avviso .sub {
+    font-size: 0.9rem; text-align: left; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); z-index: 2;
+}
+/* ==========================================
+COME METTERE LE IMMAGINI DI SFONDO (ESEMPI)
+========================================== */
+/* Card Biglietto (Sfumatura come nella tua prima foto, o immagine) */
+.info-card.avviso {
+    /* Usiamo un gradiente scuro verso il basso per rendere leggibile il testo bianco */ background: linear-gradient(to bottom, #cccccc 0%, #333333 100%);
+}
+/* Se vuoi un'immagine specifica per la prima card "evento" (Chiusura Sale Storiche) */
+.info-grid-container .info-card.evento:nth-of-type(3) {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('./assets/sala-storica.jpg'); /* Metti qui il path della tua immagine */
+}
+/* Se vuoi un'immagine specifica per la seconda card "evento" (Oltre il Visibile) */
+.info-grid-container .info-card.evento:nth-of-type(4) {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('./assets/archeometria.jpg'); /* Metti qui il path della tua immagine */
+}
+.egizio-link {
+    color: #006699; font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
+}
+/* Card con Immagini/Sfondi e linea blu sotto */
+.image-card {
+    padding: 30px; justify-content: flex-end; color: white; border-bottom: 5px solid #005c8a; /* Linea blu inferiore */ background-size: cover; background-position: center;
+}
+.image-card .badge {
+    position: absolute; top: 30px; left: 30px; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; border-bottom: 2px solid white; padding-bottom: 2px;
+}
+.image-card h2 {
+    font-family: 'BodoniBTWXX-Roman', serif; font-size: 1.6rem; line-height: 1.2; margin-bottom: 10px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+/* Sfondi temporanei per le card (sostituisci con i tuoi path reali) */
+.bg-grey-gradient { background: linear-gradient(to bottom, #cccccc, #333333); }
+.bg-sale-storiche { background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('/static/images/sala.jpg'); }
+.bg-evento-visibile { background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('/static/images/evento.jpg'); }
+/* ==========================================
+STILE SEZIONI (IMMAGINE 2 - APPUNTAMENTI SQUADRATI)
+========================================== */
+.main-news-title {
+    font-family: 'BodoniBTWXX-Roman', serif; font-size: 2.2rem; font-weight: bold; letter-spacing: 2px; color: #000; margin-bottom: 40px; text-align: left;
+}
+.main-news-title .blue-text {
+    color: #005c8a;
+}
+/* Griglia principale divisa esattamente a metà (due colonne grandi) */
+.news-main-layout-two-columns {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; /* Spazio generoso tra la colonna Appuntamenti e Notizie */ max-width: 1400px; margin: 0 auto;
+}
+.news-column {
+    display: flex; flex-direction: column; text-align: left;
+}
+.column-tab-title {
+    font-size: 0.85rem; font-weight: bold; color: #000; border-bottom: 3px solid #005c8a; /* Linea blu sotto il titolo della colonna */ padding-bottom: 8px; margin-bottom: 25px; width: fit-content; letter-spacing: 1px;
+}
+/* Contenitore interno dei singoli elementi per distanziarli verticalmente */
+.news-grid-squares {
+    display: flex; flex-direction: column; gap: 20px; /* Spazio tra una card e l'altra */
+}
+/* ==========================================
+IL SEGRETO DEI RIQUADRI IDENTICI E QUADRATI (1:1)
+========================================== */
+.news-item-square {
+    background: white; position: relative; display: flex; flex-direction: column; width: 100%; aspect-ratio: 1.6 / 1; /* Proporzione rettangolare fissa e identica per tutti i blocchi */ box-shadow: 0 4px 12px rgba(0,0,0,0.06); box-sizing: border-box;
+}
+/* La banda ambra/gialla superiore */
+.news-item-square .amber-bar {
+    background: #ffcc00; color: black; font-weight: 700; font-size: 0.75rem; padding: 10px 20px; letter-spacing: 0.5px;
+}
+/* Contenitore del testo interno */
+.item-content-square {
+    padding: 20px 45px 20px 20px; /* Spazio a destra per non sovrapporsi alla freccia */ display: flex; flex-direction: column; justify-content: flex-start; height: 100%;
+}
+.item-content-square .category {
+    color: #005c8a; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; display: block; margin-bottom: 6px;
+}
+.item-content-square p {
+    font-family: 'Montserrat', sans-serif; color: #333333; font-size: 0.95rem; font-weight: 500; line-height: 1.4; margin: 0;
+}
+/* Correzione per i testi senza categoria (colonna Notizie) per allinearli bene */
+.item-content-square p.no-category {
+    margin-top: 5px;
+}
+/* Rimosso .arrow-right */
+/* Bottoni inferiori di chiusura sezione (Stile Museo Egizio Blu) */
+.news-footer-btn-blue {
+    background: transparent; border: 2px solid #005c8a; color: #005c8a; padding: 14px; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; margin-top: 25px; cursor: pointer; transition: all 0.2s ease; text-align: center;
+}
+.news-footer-btn-blue:hover {
+    background: #005c8a; color: #ffffff;
+}
+/* Mobile responsive */
+@media (max-width: 850px) {
+    .news-main-layout-two-columns {
+        grid-template-columns: 1fr; /* Una colonna sola sui telefoni */; gap: 40px;
     }
 }
