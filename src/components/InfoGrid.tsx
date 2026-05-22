@@ -5,17 +5,17 @@ export default function InfoGrid() {
             <div className="info-card info-text-block">
                 <div className="info-section">
                     <h3>Orari</h3>
-                    <p>Aperto oggi dalle 09:00 alle 18:30</p>
+                    <p>Aperto da mercoledì a venerdì <br/>10:00 - 17:00<br/> sabato e domenica<br/>11:00 -18:00</p>
                     <a href="#" className="egizio-link">TUTTE LE APERTURE &gt;</a>
                 </div>
                 <div className="info-section">
                     <h3>Dove siamo</h3>
-                    <p>Via Accademia delle Scienze 6<br/>10123 Torino</p>
+                    <p>Piazza Mafalda di Savoia <br/>10098 Rivoli - Torino</p>
                     <a href="#" className="egizio-link">COME RAGGIUNGERCI &gt;</a>
                 </div>
                 <div className="info-section">
                     <h3>Prenotazioni</h3>
-                    <p>011 44 06 903<br/>info@museitorino.it</p>
+                    <p>011 9565 222<br/>info@castellodirivoli.org</p>
                 </div>
             </div>
 
@@ -29,8 +29,8 @@ export default function InfoGrid() {
             {/* Card Chiusura Sale */}
             <div className="info-card evento">
                 <span className="badge">AVVISI</span>
-                <h2>Chiusura Sale Storiche</h2>
-                <p className="sub">Dal 12 dicembre 2025</p>
+                <h2>Riallestimenti di Collezione che includono: Senza titolo, 1967-1969, di Gino de Dominicis, Da dove….. (1983-7-), 1983, Da dove… (1984-1), 1984, Di umano ’85 – II –, 1985, di Emilio Vedova, Persone nere, 1984, di Michelangelo Pistoletto, Senza titolo, 1985, di Marisa Merz.</h2>
+                <p className="sub">Primavera 2026</p>
             </div>
 
             {/* Card Evento Oltre il Visibile */}

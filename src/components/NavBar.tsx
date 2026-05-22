@@ -43,7 +43,7 @@ export default function NavBar() {
                     alignItems="center"
                     className="info-buttons"
                 >
-                    <FaSearch />
+                    <FaSearch className="search-icon" color="#000000" />
                     <Button
                         variant="ghost"
                         className="nav-button tickets-button"
