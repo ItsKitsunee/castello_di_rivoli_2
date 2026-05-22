@@ -306,7 +306,13 @@ TRUCCO ASPECT-RATIO 1:1 (LE CARD EVENTO E AVVISO)
 }
 .info-card.evento h2,
 .info-card.avviso h2 {
-    font-family: 'BodoniBTWXX-Roman', serif; text-align: left; font-size: 1.5rem; line-height: 1.2; margin-bottom: 8px; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Ombra per leggere il testo sopra l'immagine */ z-index: 2;
+    font-family: 'BodoniBTWXX-Roman', serif;
+    color: #cccccc;
+    text-align: left;
+    font-size: 1.0rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Ombra per leggere il testo sopra l'immagine */ z-index: 2;
 }
 .info-card.evento .sub,
 .info-card.avviso .sub {
@@ -325,7 +331,7 @@ COME METTERE LE IMMAGINI DI SFONDO (ESEMPI)
 }
 /* Se vuoi un'immagine specifica per la seconda card "evento" (Oltre il Visibile) */
 .info-grid-container .info-card.evento:nth-of-type(4) {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('./assets/archeometria.jpg'); /* Metti qui il path della tua immagine */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('../photos/pics/manica-Lunga.jpg'); /* Metti qui il path della tua immagine */
 }
 .egizio-link {
     color: #006699; font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;

@@ -36,7 +36,7 @@ export default function InfoGrid() {
             {/* Card Evento Oltre il Visibile */}
             <div className="info-card evento">
                 <span className="badge">APPUNTAMENTI</span>
-                <h2>Evento gratuito: OLTRE IL VISIBILE. Un laboratorio diffuso di archeometria</h2>
+                <h2>Evento gratuito: Tra primavera ed estate, il Programma Pubblico del Castello di Rivoli mette in scena musica, performance, pratiche condivise, coreografiche ed editoriali in relazione al Museo e la sua architettura. </h2>
                 <p className="sub">Lunedì 18 maggio 2026</p>
             </div>
         </section>
