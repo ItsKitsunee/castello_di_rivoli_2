@@ -5,6 +5,7 @@ import Hero from "./components/hero.tsx"
 import InfoGrid from "./components/InfoGrid.tsx"
 import NewsSection from "./components/NewsSection.tsx"
 import './App.css'
+import OverlookBox from "./components/OverlookBox.tsx";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
 
                 <Hero />
             </div>
+            <OverlookBox/>
 
             {/* Le nuove sezioni sotto l'Hero (Immagine 1 e Immagine 2) */}
             <InfoGrid />
