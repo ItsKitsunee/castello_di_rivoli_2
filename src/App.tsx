@@ -11,6 +11,7 @@ function App() {
     return (
         <>
             <NavBar />
+            <VideoComponent/>
 
             {/* Contenitore unico per contenere sia il video che i testi dell'Hero */}
             <div className="fullscreen-hero-wrapper">
