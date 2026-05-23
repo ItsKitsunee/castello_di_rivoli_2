@@ -5,8 +5,12 @@ import mappaPercorso from "../photos/pics/map.png";
 export default function OverlookBox() {
     const { overlookState } = useOverlook();
 
-    // Definiamo lo stesso identico gradiente dell'Hero per dare continuità
-    const gradienteScuro = "linear-gradient(180deg, #0f2042 0%, #000000 100%)";
+    // FILOSOFIA EDITORIALE: Fondiamo il gradiente scuro con una griglia di linee verticali millimetriche (1px)
+    // Questo simula la blueprint o la griglia tipografica da studio d'arte contemporanea.
+    const backgroundEditoriale = `
+        linear-gradient(to bottom, #0f2042 0%, #000000 100%),
+        repeating-linear-gradient(to right, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 150px)
+    `;
 
     return (
         <div
@@ -18,103 +22,117 @@ export default function OverlookBox() {
                 justifyContent: "center",
                 width: "100%",
 
-                // Effetto Tendina Fluido
+                // Effetto Tendina Fluido adattato alle nuove proporzioni spaziali di respiro
                 overflow: "hidden",
-                maxHeight: overlookState ? "2400px" : "0px",
+                maxHeight: overlookState ? "2800px" : "0px",
                 opacity: overlookState ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.25, 1, 0.5, 1)",
+                transition: "all 1s cubic-bezier(0.25, 1, 0.5, 1)",
 
-                // Estetica coerente: applicato il gradiente al posto del colore piatto
-                background: gradienteScuro,
+                // Applicazione del background a griglia esplicita
+                background: backgroundEditoriale,
+                backgroundBlendMode: "screen",
                 color: "#ffffff",
                 borderRadius: "16px",
                 marginTop: overlookState ? "30px" : "0px",
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)" // Ombra leggermente accentuata per dare profondità sul nero
+                boxShadow: "0 30px 60px rgba(0, 0, 0, 0.4)"
             }}
         >
-            {/* Wrapper Interno */}
+            {/* Wrapper Interno con Padding generoso per dare il "Silenzio" visivo necessario */}
             <div style={{
-                padding: "3.5rem 2rem",
+                padding: "5rem 2.5rem",
                 width: "100%",
-                maxWidth: "1100px",
+                maxWidth: "1200px",
                 boxSizing: "border-box",
                 fontFamily: "system-ui, -apple-system, sans-serif"
             }}>
 
-                {/* BLOCCO 1: COSA VOGLIAMO COMUNICARE */}
-                <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-                    <span style={{ letterSpacing: "3px", fontSize: "0.9rem", opacity: 0.7, fontWeight: "600" }}>
-                        OVERLOOK • IL CASTELLO A TESTA IN SU
+                {/* BLOCCO 1: COSA VOGLIAMO COMUNICARE - Layout Asimmetrico Introduttivo */}
+                <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start", // Sganciato dal centro: allineamento brutalista a sinistra
+                    marginBottom: "5rem",
+                    borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
+                    paddingLeft: "1.5rem"
+                }}>
+                    <span style={{ letterSpacing: "4px", fontSize: "0.8rem", opacity: 0.6, fontWeight: "600", color: "#fef08a" }}>
+                        OVERLOOK // IL CASTELLO A TESTA IN SU
                     </span>
                     <h2 style={{
                         fontFamily: "'Playfair Display', Georgia, serif",
-                        fontSize: "2.4rem",
+                        fontSize: "3rem",
                         margin: "0.5rem 0 0 0",
                         fontWeight: "400",
-                        color: "white"
+                        color: "white",
+                        lineHeight: "1.1"
                     }}>
                         Cosa vogliamo comunicare?
                     </h2>
                 </div>
 
+                {/* AREA CONTENUTO: SPLIT ASIMMETRICO (35% Testi rigorosi / 55% Media dominanti) */}
                 <div style={{
                     display: "flex",
                     flexDirection: "row",
                     flexWrap: "wrap",
-                    gap: "3rem",
+                    gap: "4rem",
                     alignItems: "flex-start",
-                    justifyContent: "center",
-                    marginBottom: "5rem"
+                    justifyContent: "space-between",
+                    marginBottom: "6rem"
                 }}>
 
-                    {/* COLONNA SINISTRA */}
-                    <div style={{ flex: "1 1 450px", display: "flex", flexDirection: "column", gap: "2rem" }}>
-                        <div style={{ display: "flex", gap: "1.2rem", alignItems: "flex-start" }}>
-                            <div style={{ fontSize: "2rem" }}>🏰</div>
-                            <div>
-                                <h3 style={{ margin: "0 0 0.3rem 0", fontSize: "1.2rem", fontWeight: "600", color: "#fef08a" }}>
-                                    Identità artistica del Castello
-                                </h3>
-                                <p style={{ margin: 0, fontSize: "0.95rem", opacity: 0.8, lineHeight: "1.5" }}>
-                                    Valorizziamo la cifra artistica e simbolica del luogo, guidando lo sguardo verso la magnificenza dei soffitti.
-                                </p>
-                            </div>
+                    {/* COLONNA SINISTRA: L'essenzialità del testo, numerato e pulito */}
+                    <div style={{ flex: "1 1 380px", display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+
+                        {/* Punto 01 */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                            <span style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.5rem", color: "#fef08a", opacity: 0.5 }}>
+                                01/
+                            </span>
+                            <h3 style={{ margin: 0, fontSize: "1.25rem", fontWeight: "600", letterSpacing: "0.5px" }}>
+                                Identità artistica del Castello
+                            </h3>
+                            <p style={{ margin: 0, fontSize: "0.95rem", opacity: 0.7, lineHeight: "1.6" }}>
+                                Valorizziamo la cifra artistica e simbolica del luogo, guidando lo sguardo verso la magnificenza dei soffitti.
+                            </p>
                         </div>
 
-                        <div style={{ display: "flex", gap: "1.2rem", alignItems: "flex-start" }}>
-                            <div style={{ fontSize: "2rem" }}>🍃</div>
-                            <div>
-                                <h3 style={{ margin: "0 0 0.3rem 0", fontSize: "1.2rem", fontWeight: "600", color: "#fef08a" }}>
-                                    Connessione con la natura
-                                </h3>
-                                <p style={{ margin: 0, fontSize: "0.95rem", opacity: 0.8, lineHeight: "1.5" }}>
-                                    Raccontiamo il contesto naturale, la fauna locale e il magico rapporto che lega l'interno del Castello all'esterno.
-                                </p>
-                            </div>
+                        {/* Punto 02 */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                            <span style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.5rem", color: "#fef08a", opacity: 0.5 }}>
+                                02/
+                            </span>
+                            <h3 style={{ margin: 0, fontSize: "1.25rem", fontWeight: "600", letterSpacing: "0.5px" }}>
+                                Connessione con la natura
+                            </h3>
+                            <p style={{ margin: 0, fontSize: "0.95rem", opacity: 0.7, lineHeight: "1.6" }}>
+                                Raccontiamo il contesto naturale, la fauna locale e il magico rapporto che lega l'interno del Castello all'esterno.
+                            </p>
                         </div>
 
-                        <div style={{ display: "flex", gap: "1.2rem", alignItems: "flex-start" }}>
-                            <div style={{ fontSize: "2rem" }}>👥</div>
-                            <div>
-                                <h3 style={{ margin: "0 0 0.3rem 0", fontSize: "1.2rem", fontWeight: "600", color: "#fef08a" }}>
-                                    Esperienza attiva e creativa
-                                </h3>
-                                <p style={{ margin: 0, fontSize: "0.95rem", opacity: 0.8, lineHeight: "1.5" }}>
-                                    Incentiviamo la partecipazione e la creatività durante la visita. Segui la cinciarella e alza lo sguardo!
-                                </p>
-                            </div>
+                        {/* Punto 03 */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                            <span style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.5rem", color: "#fef08a", opacity: 0.5 }}>
+                                03/
+                            </span>
+                            <h3 style={{ margin: 0, fontSize: "1.25rem", fontWeight: "600", letterSpacing: "0.5px" }}>
+                                Esperienza attiva e creativa
+                            </h3>
+                            <p style={{ margin: 0, fontSize: "0.95rem", opacity: 0.7, lineHeight: "1.6" }}>
+                                Incentiviamo la partecipazione e la creatività durante la visita. Segui la cinciarella e alza lo sguardo!
+                            </p>
                         </div>
                     </div>
 
-                    {/* COLONNA DESTRA */}
-                    <div style={{ flex: "1 1 450px", display: "flex", flexDirection: "column", gap: "1.8rem", width: "100%" }}>
+                    {/* COLONNA DESTRA: Spazio Media imponente con blocco Cinciarella fluttuante */}
+                    <div style={{ flex: "1 1 520px", display: "flex", flexDirection: "column", gap: "2rem", width: "100%" }}>
                         <div style={{ width: "100%", position: "relative" }}>
                             <video
                                 controls
                                 style={{
                                     width: "100%",
-                                    borderRadius: "12px",
-                                    boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+                                    borderRadius: "8px", // Angoli leggermente più netti, più rigorosi
+                                    boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
                                     backgroundColor: "#000"
                                 }}
                                 aria-label="Video di presentazione Overlook"
@@ -123,63 +141,66 @@ export default function OverlookBox() {
                             </video>
                         </div>
 
+                        {/* Box Citazione: Diventa un elemento destrutturato, minimale, quasi trasparente */}
                         <div style={{
-                            backgroundColor: "rgba(255, 255, 255, 0.06)",
-                            borderLeft: "4px solid #fef08a",
-                            padding: "1.2rem 1.5rem",
-                            borderRadius: "0 12px 12px 0",
+                            backgroundColor: "rgba(255, 255, 255, 0.03)",
+                            borderLeft: "2px solid #fef08a",
+                            padding: "1.5rem 2rem",
+                            borderRadius: "0 4px 4px 0",
+                            backdropFilter: "blur(5px)"
                         }}>
-                            <span style={{ display: "block", fontSize: "0.8rem", fontWeight: "700", color: "#fef08a", letterSpacing: "1px", marginBottom: "0.4rem" }}>
-                                🐦 IL CONSIGLIO DELLA CINCIARELLA
+                            <span style={{ display: "block", fontSize: "0.75rem", fontWeight: "700", color: "#fef08a", letterSpacing: "2px", marginBottom: "0.5rem" }}>
+                                NOTA DI PERCORSO // LA CINCIARELLA
                             </span>
-                            <p style={{ margin: 0, fontSize: "1rem", fontStyle: "italic", opacity: 0.9, lineHeight: "1.5" }}>
+                            <p style={{ margin: 0, fontSize: "1.05rem", fontStyle: "italic", opacity: 0.85, lineHeight: "1.6", fontWeight: "300" }}>
                                 "Prenditi il tempo. I soffitti raccontano storie che aspettano solo i tuoi occhi."
                             </p>
                         </div>
                     </div>
                 </div>
 
-                {/* LINEA SEPARATRICE ELEGANTE */}
-                <hr style={{ border: "none", height: "1px", backgroundColor: "rgba(255, 255, 255, 0.1)", marginBottom: "4rem" }} />
+                {/* LINEA SEPARATRICE - Pulita, tagliente, integrata nella griglia */}
+                <hr style={{ border: "none", height: "1px", backgroundColor: "rgba(255, 255, 255, 0.08)", marginBottom: "5rem" }} />
 
-                {/* BLOCCO 2: LA MAPPA DEL PERCORSO */}
+                {/* BLOCCO 2: LA MAPPA DEL PERCORSO - Struttura espositiva */}
                 <div style={{
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "row",
+                    flexWrap: "wrap",
+                    gap: "4rem",
                     alignItems: "center",
-                    textAlign: "center",
-                    gap: "2rem",
-                    marginBottom: "4rem"
+                    marginBottom: "6rem"
                 }}>
-                    <div style={{ maxWidth: "700px" }}>
-                        <span style={{ letterSpacing: "2px", fontSize: "0.85rem", color: "#fef08a", fontWeight: "600" }}>
-                            IL PERCORSO ESCLUSIVO
+                    <div style={{ flex: "1 1 350px", textAlign: "left" }}>
+                        <span style={{ letterSpacing: "3px", fontSize: "0.8rem", color: "#fef08a", fontWeight: "600" }}>
+                            THE MAP
                         </span>
                         <h2 style={{
                             fontFamily: "'Playfair Display', Georgia, serif",
-                            fontSize: "2.2rem",
-                            margin: "0.5rem 0 1rem 0",
+                            fontSize: "2.5rem",
+                            margin: "0.5rem 0 1.5rem 0",
                             fontWeight: "400",
-                            color: "white"
+                            color: "white",
+                            lineHeight: "1.1"
                         }}>
-                            Esplora le Sale suggerite dalla Cinciarella
+                            Esplora le Sale suggerite
                         </h2>
-                        <p style={{ fontSize: "1.05rem", opacity: 0.85, lineHeight: "1.6", margin: 0 }}>
+                        <p style={{ fontSize: "1rem", opacity: 0.7, lineHeight: "1.6", margin: 0 }}>
                             Segui l'itinerario consigliato per non perdere nemmeno un dettaglio delle decorazioni
                             e delle storie custodite in ogni soffitto del Castello di Rivoli.
-                            La mappa ti accompagnerà passo dopo passo.
+                            La pianta ti guiderà passo dopo passo in questa ascesa visiva.
                         </p>
                     </div>
 
-                    {/* Contenitore Immagine Mappa */}
+                    {/* Contenitore Immagine Mappa Espositivo */}
                     <div style={{
-                        width: "100%",
-                        maxWidth: "900px",
-                        borderRadius: "12px",
+                        flex: "1 1 600px",
+                        borderRadius: "8px",
                         overflow: "hidden",
-                        boxShadow: "0 15px 35px rgba(0,0,0,0.4)",
-                        backgroundColor: "#f7f7f7",
-                        padding: "10px"
+                        boxShadow: "0 25px 50px rgba(0,0,0,0.5)",
+                        backgroundColor: "#f4f4f5",
+                        padding: "12px",
+                        boxSizing: "border-box"
                     }}>
                         <img
                             src={mappaPercorso}
@@ -188,59 +209,66 @@ export default function OverlookBox() {
                                 width: "100%",
                                 height: "auto",
                                 display: "block",
-                                borderRadius: "8px"
+                                borderRadius: "4px"
                             }}
                         />
                     </div>
                 </div>
 
-                {/* BLOCCO 3: CALL TO ACTION FINALE (Acquista Biglietti) */}
+                {/* LINEA SEPARATRICE PRIMA DELL'INSTALLAZIONE TIPOGRAFICA */}
+                <hr style={{ border: "none", height: "1px", backgroundColor: "rgba(255, 255, 255, 0.08)", marginBottom: "4rem" }} />
+
+                {/* BLOCCO 3: CALL TO ACTION - L'impatto Monumentale dello Slogan */}
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
-                    textAlign: "center",
-                    padding: "2rem 0 1rem 0"
+                    alignItems: "flex-start", // Allineato rigidamente a sinistra come la slide editoriale
+                    textAlign: "left",
+                    paddingTop: "2rem",
+                    width: "100%"
                 }}>
-                    <p style={{
-                        fontFamily: "'Playfair Display', Georgia, serif", // Usa lo stesso font elegante dell'Hero
-                        fontSize: "2rem",                                 // Dimensione raddoppiata per dare forte impatto visivo
-                        fontWeight: "700",                                // Grassetto deciso
-                        color: "#fef08a",                                 // Giallo oro per farlo saltare all'occhio sullo sfondo scuro
-                        letterSpacing: "2px",                             // Lettere più traspiranti e cinematiche
-                        textTransform: "uppercase",                       // Tutto maiuscolo per dare autorevolezza al comando
-                        opacity: 1,                                       // Opacità massima, niente dissolvenze per lo slogan
-                        marginBottom: "1.5rem",
-                        maxWidth: "600px",                                // Leggermente allargato per contenere il testo su schermi medi
-                        lineHeight: "1.3"
+                    {/* Lo slogan diventa un elemento monumentale e isolato nello spazio vuoto */}
+                    <h1 style={{
+                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontSize: "calc(2.5rem + 2vw)", // Grandezza fluida ed estrema che scala col browser
+                        fontWeight: "700",
+                        color: "#fef08a",
+                        letterSpacing: "4px",
+                        textTransform: "uppercase",
+                        opacity: 1,
+                        margin: "0 0 3rem 0",
+                        lineHeight: "1.0",
+                        maxWidth: "800px"
                     }}>
                         Alza lo sguardo.
-                    </p>
+                    </h1>
 
                     <button
                         style={{
                             backgroundColor: "#fef08a",
                             color: "#0f2042",
                             border: "none",
-                            padding: "1rem 2.5rem",
-                            fontSize: "1.1rem",
+                            padding: "1.2rem 3.5rem", // Pulsante più imponente
+                            fontSize: "1rem",
                             fontWeight: "700",
-                            letterSpacing: "1px",
-                            borderRadius: "30px",
+                            letterSpacing: "2px",
+                            borderRadius: "0px", // Angoli retti tagliati: puro stile editoriale/brutalista
                             cursor: "pointer",
-                            boxShadow: "0 8px 20px rgba(254, 240, 138, 0.2)",
-                            transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                            boxShadow: "0 10px 25px rgba(254, 240, 138, 0.15)",
+                            transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                         }}
                         onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = "scale(1.05)";
-                            e.currentTarget.style.boxShadow = "0 12px 25px rgba(254, 240, 138, 0.4)";
+                            e.currentTarget.style.transform = "translateY(-4px)";
+                            e.currentTarget.style.backgroundColor = "#ffffff"; // Diventa bianco puro all'hover per un contrasto estremo
+                            e.currentTarget.style.boxShadow = "0 15px 30px rgba(255, 255, 255, 0.2)";
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = "scale(1)";
-                            e.currentTarget.style.boxShadow = "0 8px 20px rgba(254, 240, 138, 0.2)";
+                            e.currentTarget.style.transform = "translateY(0px)";
+                            e.currentTarget.style.backgroundColor = "#fef08a";
+                            e.currentTarget.style.boxShadow = "0 10px 25px rgba(254, 240, 138, 0.15)";
                         }}
                     >
-                        ACQUISTA I BIGLIETTI
+                        ACQUISTA I BIGLIETTI →
                     </button>
                 </div>
 
