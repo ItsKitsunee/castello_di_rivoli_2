@@ -1,15 +1,23 @@
 import { useState } from 'react'
 import { Box, Button, Flex, Drawer, IconButton, VStack } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom' // <-- 1. Importa useNavigate
 import { FaBars } from 'react-icons/fa'
 import { FaTicket, FaXmark } from 'react-icons/fa6'
 import { FaSearch } from "react-icons/fa"
 import Logo from '../photos/logos/LOGO1.svg'
-import { RxCross2 } from "react-icons/rx";
+import { RxCross2 } from "react-icons/rx"
 import './Components.css'
 
 export default function NavBar() {
     // In Chakra v3 si usa uno stato React standard per controllare la prop "open"
     const [open, setOpen] = useState(false)
+    const navigate = useNavigate() // <-- 2. Inizializza l'hook per le rotte
+
+    // 3. Funzione centralizzata per gestire il reindirizzamento
+    const handleTicketsClick = () => {
+        setOpen(false) // Chiude il drawer se aperto (utile su mobile)
+        navigate('/tickets') // Reindirizza alla pagina Tickets
+    }
 
     return (
         <Box
@@ -44,7 +52,10 @@ export default function NavBar() {
                     className="info-buttons"
                 >
                     <FaSearch className="search-icon" color="#000000" />
+
+                    {/* BOTTONE BIGLIETTI (DESKTOP) */}
                     <Button
+                        onClick={handleTicketsClick} // <-- 4. Aggiunto l'evento click qui
                         variant="ghost"
                         className="nav-button tickets-button"
                         _hover={{
@@ -92,7 +103,7 @@ export default function NavBar() {
             <Drawer.Root
                 open={open}
                 onOpenChange={(e) => setOpen(e.open)}
-                placement="end" // In v3 si usa "end" o "start" al posto di "right" o "left"
+                placement="end"
             >
                 <Drawer.Backdrop />
                 <Drawer.Positioner>
@@ -115,8 +126,10 @@ export default function NavBar() {
 
                         <Drawer.Body>
                             <VStack gap={6} align="stretch" py={4}>
-                                {/* Mostra il bottone biglietti nel drawer SOLO su mobile */}
+
+                                {/* BOTTONE BIGLIETTI (MOBILE) */}
                                 <Button
+                                    onClick={handleTicketsClick} // <-- 5. Aggiunto l'evento click anche qui per il mobile
                                     display={{ base: 'flex', md: 'none' }}
                                     w="100%"
                                     variant="ghost"

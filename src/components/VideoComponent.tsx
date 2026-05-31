@@ -7,7 +7,7 @@ function VideoComponent() {
             src={Video}
             autoPlay
             muted
-
+            loop
             playsInline
             className="video-full-width"
         />
