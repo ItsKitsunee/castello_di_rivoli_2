@@ -7,6 +7,7 @@ import NewsSection from "./components/NewsSection"
 import OverlookBox from "./components/OverlookBox"
 import Tickets from "./pages/Tickets"
 import './App.css'
+import CameraPage from './pages/Camera.tsx';
 
 // Creiamo un mini-componente per la Home per tenere pulito il router,
 // oppure puoi dichiararlo direttamente nella Route.
@@ -42,6 +43,7 @@ function App() {
 
                 {/* Pagina dei Biglietti */}
                 <Route path="/tickets" element={<Tickets />} />
+                <Route path="/AR" element={<CameraPage/>} />
             </Routes>
         </>
     )
