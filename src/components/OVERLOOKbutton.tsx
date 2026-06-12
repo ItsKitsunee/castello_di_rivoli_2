@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useOverlook } from '../global_state/OverlookContext';
-import logoRivoli from "../photos/logos/Logo_Rivoli.png.png";
-import logoRivoliNegativo from "../photos/logos/Logo_Rivoli_negativo.png";
+import logoRivoli from "../photos/logos/Logo_Rivoli.png";
+import logoRivoliNegativo from "../photos/logos/logo_Rivoli_negativo.png";
 
 export default function OVERLOOKbutton() {
     const { overlookState, setOverlookState } = useOverlook();
