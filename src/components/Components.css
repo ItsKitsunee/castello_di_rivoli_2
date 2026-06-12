@@ -47,6 +47,18 @@ button.nav-button.tickets-button:hover::before { /* Aggiunto tickets-button qui 
 button.mobile-nav-button {
     font-size: 1rem; font-weight: 500; padding: 12px 16px; border-radius: 4px; color: #1a1a1a !important; transition: all 0.3s ease;
 }
+    .Hero-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh; /* Reso più piccolo */
+        color: #2d3748;
+        text-align: center;
+        padding: 10px;
+        /* Sostituito il vecchio box-shadow e rimosso con il nuovo gradiente */
+        background: linear-gradient(to bottom, #FFFCE7 100%, #F7F4EE 100%);
+    }
 /* Hero Section Styling */
 .Hero-main {
     display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 80vh; /* Reso più piccolo */ color: #2d3748; text-align: center; padding: 10px; /* Rimosso background e box-shadow */
@@ -136,13 +148,13 @@ button.mobile-nav-button {
     }
 }
 #nprogress .bar {
-    background: #d4af37 !important; /* Oro Egizio */
+    background: #f9ec5b !important; /* Oro Egizio */
 }
 #nprogress .peg {
-    box-shadow: 0 0 10px #d4af37, 0 0 5px #d4af37 !important;
+    box-shadow: 0 0 10px #f9ec5b, 0 0 5px #f9ec5b !important;
 }
 #nprogress .spinner-icon {
-    border-top-color: #d4af37 !important; border-left-color: #d4af37 !important;
+    border-top-color: #f9ec5b !important; border-left-color: #f9ec5b !important;
 }
 body {
     background-color: #f7f4ee;
@@ -164,7 +176,7 @@ body {
 }
 h1.museo-hero-title,
 .museo-title-large {
-    font-family: 'BodoniBdBTWXX-Bold', 'BodoniBTWXX-Roman', serif; font-size: 3.5rem; letter-spacing: 3px; text-transform: uppercase; color: #d4af37; /* Oro */ line-height: 1.2; margin-bottom: 1.5rem;
+    font-family: 'BodoniBdBTWXX-Bold', 'BodoniBTWXX-Roman', serif; font-size: 3.5rem; letter-spacing: 3px; text-transform: uppercase; color: #f9ec5b; /* Oro */ line-height: 1.2; margin-bottom: 1.5rem;
 }
 h2.museo-section-title {
     font-family: 'BodoniBTWXX-Roman', serif; font-size: 2.2rem; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 15px; margin-bottom: 2.5rem;
@@ -237,7 +249,7 @@ STILE SEZIONI (IMMAGINE 1 - GRIGLIA INFO)
 /* Blocco Orari e Contatti */
 .info-text-block {
     padding: 35px 30px;             /* Spaziatura interna capiente come da foto */
-    border-top: 4px solid #d4af37;   /* Linea superiore oro rimasta invariata */
+    border-top: 4px solid #f9ec5b;   /* Linea superiore oro rimasta invariata */
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -415,7 +427,7 @@ IL SEGRETO DEI RIQUADRI IDENTICI E QUADRATI (1:1)
 }
 /* La banda ambra/gialla superiore */
 .news-item-square .amber-bar {
-    background: #ffcc00; color: black; font-weight: 700; font-size: 0.75rem; padding: 10px 20px; letter-spacing: 0.5px;
+    background: #f9ec5b; color: black; font-weight: 700; font-size: 0.75rem; padding: 10px 20px; letter-spacing: 0.5px;
 }
 /* Contenitore del testo interno */
 .item-content-square {
@@ -445,3 +457,396 @@ IL SEGRETO DEI RIQUADRI IDENTICI E QUADRATI (1:1)
         grid-template-columns: 1fr; /* Una colonna sola sui telefoni */; gap: 40px;
     }
 }
+    /* ==========================================================================
+   PAGINA BIGLIETTI (TICKETS.TSX) - STRUTTURA EDITORIALE E SPLIT LAYOUT
+   ========================================================================== */
+
+    .tickets-page-container {
+        display: flex;
+        min-height: 100vh;
+        width: 100vw;
+        background-color: #f7f4ee; /* Sabbia chiaro coerente con il corpo principale */
+        color: #1a1a1a;
+        font-family: 'Montserrat', sans-serif;
+        box-sizing: border-box;
+    }
+
+    /* --- COLONNA SINISTRA: IL FORM --- */
+    .tickets-form-section {
+        flex: 1 1 60%;
+        padding: 60px 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        box-sizing: border-box;
+    }
+
+    .tickets-back-nav {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #005c8a; /* Blu Egizio */
+        cursor: pointer;
+        margin-bottom: 40px;
+        width: fit-content;
+        transition: transform 0.2s ease;
+    }
+
+    .tickets-back-nav:hover {
+        transform: translateX(-4px);
+    }
+
+    .tickets-header-block {
+        margin-bottom: 40px;
+        text-align: left;
+    }
+
+    .tickets-subtitle {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #8c826e;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .tickets-main-title {
+        font-family: 'BodoniBdBTWXX-Bold', 'BodoniBTWXX-Roman', serif;
+        font-size: 3rem;
+        color: #000000;
+        margin: 0;
+        line-height: 1.1;
+    }
+
+    /* --- DETTAGLI DEL FORM EDITORIALE --- */
+    .editorial-form {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .form-row-double {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .form-label {
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #000000;
+        border-bottom: 2px solid #005c8a;
+        padding-bottom: 4px;
+        width: fit-content;
+    }
+
+    /* Input editoriali e tendine */
+    .editorial-input {
+        width: 100%;
+        padding: 15px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 0px; /* Angoli netti d'ispirazione brutalista */
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+
+    .editorial-input:focus {
+        outline: none;
+        border-color: #005c8a;
+    }
+
+    /* Griglia delle Card Tariffe */
+    .ticket-type-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+        width: 100%;
+    }
+
+    .ticket-selector-card {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 20px;
+        cursor: pointer;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 140px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ticket-selector-card:hover {
+        border-color: #005c8a;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+    }
+
+    .ticket-selector-card.active {
+        border: 2px solid #005c8a;
+        background-color: rgba(0, 92, 138, 0.02);
+    }
+
+    .selector-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .selector-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #000;
+    }
+
+    .selector-price {
+        font-family: 'BodoniBdBTWXX-Bold', serif;
+        font-size: 1.3rem;
+        color: #005c8a;
+        font-weight: bold;
+    }
+
+    .selector-desc {
+        font-size: 0.8rem;
+        color: #666666;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    /* Contatore Quantità */
+    .quantity-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding: 20px 0;
+    }
+
+    .quantity-counter {
+        display: flex;
+        align-items: center;
+        background: #ffffff;
+        border: 1px solid rgba(0,0,0,0.15);
+    }
+
+    .qty-btn {
+        background: transparent;
+        border: none;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #000;
+        transition: background 0.2s ease;
+    }
+
+    .qty-btn:hover {
+        background: #f0ebe0;
+    }
+
+    .qty-value {
+        width: 40px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #000;
+    }
+
+    /* --- BLOCCO DI CHECKOUT MONUMENTALE --- */
+    .form-summary-checkout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        background: #ffffff;
+        padding: 30px;
+        border-left: 5px solid #f9ec5b; /* Linea Oro Egizio */
+        box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+    }
+
+    .summary-text-block {
+        text-align: left;
+    }
+
+    .summary-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #666666;
+        display: block;
+    }
+
+    .summary-total-price {
+        font-family: 'BodoniBdBTWXX-Bold', serif;
+        font-size: 2.8rem;
+        color: #000000;
+        margin: 0;
+        line-height: 1;
+    }
+
+    .tickets-submit-button {
+        background-color: #005c8a; /* Pulsante solido Blu Egizio */
+        color: #ffffff !important;
+        border: none;
+        padding: 18px 35px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+
+    .tickets-submit-button:hover {
+        background-color: #004466;
+        box-shadow: 0 8px 20px rgba(0, 92, 138, 0.25);
+    }
+
+    /* --- COLONNA DESTRA: SIDEBAR SCENOGRAFICA --- */
+    .tickets-info-sidebar {
+        flex: 1 1 40%;
+        position: relative;
+        background-color: #08274f; /* Fondo Blu scuro profondo già presente nell'Hero */
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .sidebar-image-placeholder {
+        width: 100%;
+        height: 45%;
+        background: linear-gradient(to bottom, rgba(8, 39, 79, 0.2), rgba(8, 39, 79, 0.9)), #cccccc; /* Grigio provvisorio miscelato */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .placeholder-text {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #444444;
+        text-align: center;
+    }
+
+    .sidebar-content-overlay {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        flex-grow: 1;
+    }
+
+    .sidebar-tag {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #f9ec5b; /* Oro */
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar-title {
+        font-family: 'BodoniBTWXX-Roman', serif;
+        font-size: 2rem;
+        color: #ffffff;
+        margin: 0 0 20px 0;
+    }
+
+    .sidebar-info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 30px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .sidebar-info-list li {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #e0e0e0;
+        position: relative;
+        padding-left: 15px;
+    }
+
+    .sidebar-info-list li::before {
+        content: '▪';
+        position: absolute;
+        left: 0;
+        color: #f9ec5b;
+    }
+
+    .sidebar-notice-amber {
+        background: rgba(249, 236, 91, 0.08);
+        border-left: 3px solid #f9ec5b; /* Banda Gialla/Ambra identica alle news */
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .amber-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #f9ec5b;
+        display: block;
+        margin-bottom: 5px;
+        letter-spacing: 1px;
+    }
+
+    .sidebar-notice-amber p {
+        font-size: 0.85rem;
+        color: #ffffff;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    /* --- RESPONSIVE ADJUSTMENTS --- */
+    @media (max-width: 1024px) {
+        .tickets-page-container {
+            flex-direction: column;
+        }
+        .tickets-form-section, .tickets-info-sidebar {
+            flex: 1 1 100%;
+        }
+        .sidebar-image-placeholder {
+            height: 250px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .form-row-double {
+            grid-template-columns: 1fr;
+        }
+        .form-summary-checkout {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .tickets-submit-button {
+            width: 100%;
+        }
+        .tickets-main-title {
+            font-size: 2.2rem;
+        }
+    }
