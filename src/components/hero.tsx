@@ -67,7 +67,7 @@ export default function Hero() {
                     }}
                 >
                     <button
-                        class="news-footer-btn-blue"
+                        className="news-footer-btn-blue"
                         style={{
                             padding: "0.6rem 1.8rem",
                             cursor: "pointer",
@@ -82,7 +82,7 @@ export default function Hero() {
                         GLI EVENTI DEL MESE
                     </button>
                     <button
-                        class="news-footer-btn-blue"
+                        className="news-footer-btn-blue"
                         style={{
                             padding: "0.6rem 1.8rem",
                             cursor: "pointer",

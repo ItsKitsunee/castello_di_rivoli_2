@@ -1,7 +1,6 @@
 import { useOverlook } from "../global_state/OverlookContext.tsx";
 import { useNavigate } from "react-router-dom"; // <-- 1. Importa l'hook useNavigate
 // Importiamo la mappa usando il percorso relativo corretto all'interno di src/
-import mappaPercorso from "../photos/pics/map.png";
 
 export default function OverlookBox() {
     const { overlookState } = useOverlook();
