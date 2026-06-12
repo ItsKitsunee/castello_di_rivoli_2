@@ -1,11 +1,11 @@
-import { Routes, Route } from 'react-router-dom' // <-- Importa i componenti per il routing
+import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
-import VideoComponent from "./components/VideoComponent.tsx"
-import Hero from "./components/hero.tsx"
-import InfoGrid from "./components/InfoGrid.tsx"
-import NewsSection from "./components/NewsSection.tsx"
-import OverlookBox from "./components/OverlookBox.tsx"
-import Tickets from "./pages/Tickets.tsx" // <-- Importa la tua nuova pagina Tickets
+import VideoComponent from "./components/VideoComponent"
+import Hero from "./components/hero"
+import InfoGrid from "./components/InfoGrid"
+import NewsSection from "./components/NewsSection"
+import OverlookBox from "./components/OverlookBox"
+import Tickets from "./pages/Tickets"
 import './App.css'
 
 // Creiamo un mini-componente per la Home per tenere pulito il router,

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"; // Importati useEffect e useRef
-import OVERLOOKbutton from "./OVERLOOKbutton.tsx";
+import OVERLOOKbutton from "./OVERLOOKbutton";
 import { useOverlook } from "../global_state/OverlookContext.tsx";
 
 export default function Hero() {
